@@ -1,25 +1,25 @@
 class DiscoverySkills < Formula
   desc "CLI tool for managing Claude Code custom skills"
   homepage "https://github.com/yeojinsoo/discovery-skills-cli"
-  version "0.3.0"
+  version "0.4.0"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/yeojinsoo/discovery-skills-cli/releases/download/v0.3.0/discovery-skills-aarch64-apple-darwin.tar.xz"
-      sha256 "4893d44c2f1d4213af428159d45c7676657ba3f7ce176eefca3181b3ed8fbabd"
+      url "https://github.com/yeojinsoo/discovery-skills-cli/releases/download/v0.4.0/discovery-skills-aarch64-apple-darwin.tar.xz"
+      sha256 "d6e1c7bf8e6b925dcbf24cf64fa8305174c3d24e682b7c24b17518852e4ced55"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/yeojinsoo/discovery-skills-cli/releases/download/v0.3.0/discovery-skills-x86_64-apple-darwin.tar.xz"
-      sha256 "6f0a4da5b839560e16a2d631f32498bf73cca72cff6aae6fe2632629158583b3"
+      url "https://github.com/yeojinsoo/discovery-skills-cli/releases/download/v0.4.0/discovery-skills-x86_64-apple-darwin.tar.xz"
+      sha256 "e69d4315c2a250eaca2bf4db27e597a17f7c63f936c77569645951f9916f5f29"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/yeojinsoo/discovery-skills-cli/releases/download/v0.3.0/discovery-skills-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "1d6cbc1d09c2e5413ed25a2939f6cfe7e304eff9c6e47eb5fa20e3fa14e07dec"
+      url "https://github.com/yeojinsoo/discovery-skills-cli/releases/download/v0.4.0/discovery-skills-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "5e4a219f4800b90d52945a9619ea109a4d072333e29b24ac7d9ee47eefa995c0"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/yeojinsoo/discovery-skills-cli/releases/download/v0.3.0/discovery-skills-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "22fffb365e6c69c9325f18786469dae0fea7f87650c1df5cd22bf705aeca6262"
+      url "https://github.com/yeojinsoo/discovery-skills-cli/releases/download/v0.4.0/discovery-skills-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "dcbf144ca9346133939c0716eeaf0b44752f06b83b8f83dc3bdab568254deb71"
     end
   end
   license "MIT"
