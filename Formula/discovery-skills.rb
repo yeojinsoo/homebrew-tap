@@ -25,11 +25,11 @@ class DiscoverySkills < Formula
   license "MIT"
 
   BINARY_ALIASES = {
-    "aarch64-apple-darwin":      {},
+    "aarch64-apple-darwin": {},
     "aarch64-unknown-linux-gnu": {},
-    "x86_64-apple-darwin":       {},
-    "x86_64-unknown-linux-gnu":  {},
-  }.freeze
+    "x86_64-apple-darwin": {},
+    "x86_64-unknown-linux-gnu": {}
+  }
 
   def target_triple
     cpu = Hardware::CPU.arm? ? "aarch64" : "x86_64"
@@ -47,10 +47,18 @@ class DiscoverySkills < Formula
   end
 
   def install
-    bin.install "discovery-skills" if OS.mac? && Hardware::CPU.arm?
-    bin.install "discovery-skills" if OS.mac? && Hardware::CPU.intel?
-    bin.install "discovery-skills" if OS.linux? && Hardware::CPU.arm?
-    bin.install "discovery-skills" if OS.linux? && Hardware::CPU.intel?
+    if OS.mac? && Hardware::CPU.arm?
+      bin.install "discovery-skills"
+    end
+    if OS.mac? && Hardware::CPU.intel?
+      bin.install "discovery-skills"
+    end
+    if OS.linux? && Hardware::CPU.arm?
+      bin.install "discovery-skills"
+    end
+    if OS.linux? && Hardware::CPU.intel?
+      bin.install "discovery-skills"
+    end
 
     install_binary_aliases!
 
