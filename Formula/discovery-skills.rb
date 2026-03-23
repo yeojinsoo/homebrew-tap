@@ -1,35 +1,35 @@
 class DiscoverySkills < Formula
   desc "CLI tool for managing Claude Code custom skills"
   homepage "https://github.com/yeojinsoo/discovery-skills-cli"
-  version "0.5.1"
+  version "0.6.0"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/yeojinsoo/discovery-skills-cli/releases/download/v0.5.1/discovery-skills-aarch64-apple-darwin.tar.xz"
-      sha256 "320c18179d4c8003f337a2b81eaab6f1cb59da793ccd36362aa2d5a34ba50edd"
+      url "https://github.com/yeojinsoo/discovery-skills-cli/releases/download/v0.6.0/discovery-skills-aarch64-apple-darwin.tar.xz"
+      sha256 "c59042f16744a695911e34ffc9ad418adb8d9c4253097ef9ab63da7ac72895b8"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/yeojinsoo/discovery-skills-cli/releases/download/v0.5.1/discovery-skills-x86_64-apple-darwin.tar.xz"
-      sha256 "d74925ce8e55ffb1b4ead0edb3ef702c6adaf23f3c4a0dbde6471dcf7a546762"
+      url "https://github.com/yeojinsoo/discovery-skills-cli/releases/download/v0.6.0/discovery-skills-x86_64-apple-darwin.tar.xz"
+      sha256 "ae5bd44c613ffb155cace31ad6b72d1ddb27f5f46c60e81d85e1d76789b9f93a"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/yeojinsoo/discovery-skills-cli/releases/download/v0.5.1/discovery-skills-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "6a66c3bff5d415765942c2ae587f203d7eed51294609f24143a6d8e3f9cb3930"
+      url "https://github.com/yeojinsoo/discovery-skills-cli/releases/download/v0.6.0/discovery-skills-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "f49058b68f565d39757bf55f87ac6af8ab77024ec0fdd8aada685445deea4643"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/yeojinsoo/discovery-skills-cli/releases/download/v0.5.1/discovery-skills-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "2745fd3d3ce075d0acfae057b4ec3f597a29e0f3342eabb29dc61fa33b40e1f1"
+      url "https://github.com/yeojinsoo/discovery-skills-cli/releases/download/v0.6.0/discovery-skills-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "fcdcd1496dbafe515d4c9a7d78fb027fd88a7764fa06d9e9c7c7ae6316d9a3b7"
     end
   end
   license "MIT"
 
   BINARY_ALIASES = {
-    "aarch64-apple-darwin": {},
+    "aarch64-apple-darwin":      {},
     "aarch64-unknown-linux-gnu": {},
-    "x86_64-apple-darwin": {},
-    "x86_64-unknown-linux-gnu": {}
-  }
+    "x86_64-apple-darwin":       {},
+    "x86_64-unknown-linux-gnu":  {},
+  }.freeze
 
   def target_triple
     cpu = Hardware::CPU.arm? ? "aarch64" : "x86_64"
@@ -47,18 +47,10 @@ class DiscoverySkills < Formula
   end
 
   def install
-    if OS.mac? && Hardware::CPU.arm?
-      bin.install "discovery-skills"
-    end
-    if OS.mac? && Hardware::CPU.intel?
-      bin.install "discovery-skills"
-    end
-    if OS.linux? && Hardware::CPU.arm?
-      bin.install "discovery-skills"
-    end
-    if OS.linux? && Hardware::CPU.intel?
-      bin.install "discovery-skills"
-    end
+    bin.install "discovery-skills", "ds" if OS.mac? && Hardware::CPU.arm?
+    bin.install "discovery-skills", "ds" if OS.mac? && Hardware::CPU.intel?
+    bin.install "discovery-skills", "ds" if OS.linux? && Hardware::CPU.arm?
+    bin.install "discovery-skills", "ds" if OS.linux? && Hardware::CPU.intel?
 
     install_binary_aliases!
 
